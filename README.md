@@ -8,7 +8,7 @@ Structure of DataBase
 ### association
 - has_many :names, through: :members
 - has_many :members
-- has_many :comments
+- has_many :messages
 
 
 ## membersテーブル
@@ -22,7 +22,7 @@ Structure of DataBase
 - belongs_to :user
 
 
-## commentsテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -43,4 +43,4 @@ Structure of DataBase
 ### Association
 - has_many :users, through: :members
 - has_many :members
-- has_many :comments
+- has_many :messages
