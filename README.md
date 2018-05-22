@@ -1,24 +1,46 @@
-# README
+Structure of DataBase
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Userテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|name|string|null false, foreign_key: true, add_index|
 
-Things you may want to cover:
+### association
+- has_many :members, through: :group
+- has_many :comments
 
-* Ruby version
 
-* System dependencies
+## membersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
-* Configuration
+### Association
+- has_many :group
+- has_many :user
 
-* Database creation
 
-* Database initialization
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+|comment|text|null: false|
+|image|string|null: false|
+|body|text|null: false|
 
-* How to run the test suite
+### Association
+- belongs_to :user
+- belongs_to :group
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## groupテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_name|text|null: false|
 
-* ...
+###Association
+- has_many :user
+- has_many :cmments
