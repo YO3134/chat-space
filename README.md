@@ -3,44 +3,44 @@ Structure of DataBase
 ## Userテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|name|string|null false, foreign_key: true, add_index|
+|name|string|null: false, add_index|
 
 ### association
-- has_many :members, through: :group
+- has_many :names, through: :members
+- has_many :members
 - has_many :comments
 
 
 ## membersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :group
-- has_many :user
+- belongs_to :name
+- belongs_to :user
 
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-|comment|text|null: false|
-|image|string|null: false|
-|body|text|null: false|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
+|image|string||
+|body|text||
 
 ### Association
 - belongs_to :user
-- belongs_to :group
+- belongs_to :name
 
 
-## groupテーブル
+## nameテーブル
 |Column|Type|Options|
 |------|----|-------|
 |group_name|text|null: false|
 
-###Association
-- has_many :user
-- has_many :cmments
+### Association
+- has_many :users, throudh: :members
+- has_many :members
+- has_many :comments
