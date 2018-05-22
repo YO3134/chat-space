@@ -41,6 +41,6 @@ Structure of DataBase
 |group_name|text|null: false|
 
 ### Association
-- has_many :users, throudh: :members
+- has_many :users, through: :members
 - has_many :members
 - has_many :comments
