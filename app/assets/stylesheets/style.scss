@@ -52,3 +52,23 @@ $side_bar_text: 11px;
       }
       }
 
+.chat {
+  width: calc(100% - 300px);
+  .header {
+    box-sizing: border-box;
+    height: 100px;
+    padding: 0 40px;
+    border: #eeeeee;
+    .left-header {
+      float: left;
+      .left-header_title {
+        color: $side_bar_title;
+        margin: 35px 0 15px 0;
+        font-size: 20px;
+
+        }
+    }
+  }
+}
+
+
