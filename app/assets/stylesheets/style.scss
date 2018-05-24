@@ -4,6 +4,7 @@ $side_blue_light: #2f3e51;
 $light-blue: #38AEF0;
 $font-color_left-header: #FFFFFF;
 $font-color-member_and_deta: #999999;
+$font-chat-color: #434A54;
 
 $side_bar_title: 16px;
 $side_bar_name: 15px;
@@ -65,8 +66,25 @@ $side_bar_text: 11px;
         color: $side_bar_title;
         margin: 35px 0 15px 0;
         font-size: 20px;
-
+      .left-header_members {
+        color: $font-chat-color;
+        font-size: $side_bar_title;
+        font-weight: bold;
+        .member {
+          display: inline-block;
+          padding-right: 5px;
         }
+        }
+        }
+    .right-header {
+      border: 1px solid $side_blue_light;
+      color: $side_blue_light;
+      float: right;
+      height: 40px;
+      line-height:  40px;
+      margin: 20px;
+      padding: 0 20px;
+    }
     }
   }
 }
