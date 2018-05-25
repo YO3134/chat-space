@@ -1,9 +1,11 @@
 // @import "modules/chat";
 // @import "modules/side_bar";
-@import "./reset";
-@import "./variable";
-@import "./messages";
-@import "./style";
+
+
 @import "./colors";
 @import "./font-size";
-
+@import "./reset";
+@import "./variable";
+@import "./wrapper";
+@import "./side_bar";
+@import "./style";

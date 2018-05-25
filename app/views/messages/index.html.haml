@@ -7,10 +7,10 @@
       %ul.header_lists
         %li.list
           = link_to do
-            = fa_icon 'fa-pencil-square-o', class: 'icon'
+            = fa_icon 'pencil-square-o', class: 'icon'
         %li.list
           = link_to  do
-            = fa_icon 'fa-cog', class: 'icon'
+            = fa_icon 'cog', class: 'icon'
     .groups
       .group
         .group_name
@@ -49,34 +49,35 @@
         .upper_message
           .upper_message__user_name
             name
-          .upper_message__message_date
+          .upper_message__date
             2018/05/25
         .lower_message
-          .lower_message__image
+          .lower_message__text
             image
       .message
         .upper_message
           .upper_message__user_name
             name
-          .upper_message__message_date
+          .upper_message__date
             2018/05/25
         .lower_message
-          .lower_message__image
+          .lower_message__text
             image
       .message
         .upper_message
           .upper_message__user_name
             name
-          .upper_message__message_date
+          .upper_message__date
             2018/05/25
         .lower_message
-          .lower_message__image
-            image
+          .lower_message__text
+            messages
     .form
-      %form.js-form
+      %form__js_form
         .form__mask
           %label.form_mask_image
-          %input.form_message
-          %input{type: "submit", value: "Send"}
+            = fa_icon 'picture-o', class: 'icon'
+            %input.hidden{type: 'file'}
+          %input.form__submit{type: "submit", value: "Send"}
 
 
