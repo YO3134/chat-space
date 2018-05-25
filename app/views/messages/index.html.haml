@@ -6,11 +6,11 @@
         アカウント名
       %ul.header_lists
         %li.list
-          icon1
-          %i.fa.fa-pencil-square-o.icon
+          = link_to do
+            = fa_icon 'fa-pencil-square-o', class: 'icon'
         %li.list
-          icon2
-          %i.fa.fa-cog.icon
+          = link_to  do
+            = fa_icon 'fa-cog', class: 'icon'
     .groups
       .group
         .group_name
@@ -33,21 +33,48 @@
         .group_message
           メッセージ
   .chat
-    .header
+    .chat__header
       .left-header
-        .left-heder_title
-          タイトル名
-        %ul.left-header_members
-          メンバー名
+        .left-header__title
+          sampleグループ
+        %ul.left-header__members
+          Members
           %li.member
-            メンバー
+          xxxxxxxxx
       .right-header
-        .right-header_button
+        .right-header__button
           Edit
     .messages.js-messages
+      .message
+        .upper_message
+          .upper_message__user_name
+            name
+          .upper_message__message_date
+            2018/05/25
+        .lower_message
+          .lower_message__image
+            image
+      .message
+        .upper_message
+          .upper_message__user_name
+            name
+          .upper_message__message_date
+            2018/05/25
+        .lower_message
+          .lower_message__image
+            image
+      .message
+        .upper_message
+          .upper_message__user_name
+            name
+          .upper_message__message_date
+            2018/05/25
+        .lower_message
+          .lower_message__image
+            image
     .form
       %form.js-form
-        .form_mask
+        .form__mask
           %label.form_mask_image
           %input.form_message
           %input{type: "submit", value: "Send"}
