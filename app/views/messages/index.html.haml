@@ -6,11 +6,11 @@
         アカウント名
       %ul.header_lists
         %li.list
-          = link_to do
-            = fa_icon "pencil-square-o"
+          / = link_to do
+          = fa_icon "pencil-square-o"
         %li.list
-          = link_to  do
-            = fa_icon "cog"
+          / = link_to  do
+          = fa_icon "cog"
     .groups
       .group
         .group_name
@@ -73,11 +73,12 @@
           .lower_message__text
             messages
     .form
-      .form__mask
-        %form__mask_image
-          = link_to do
-            = fa_icon 'picture-o'
-          %input.hidden{type: 'file'}
-      %input.form__submit{type: "submit", value: "Send"}
-
+      %form.js-form
+        %input.form__message{placeholder: "type a message"}
+        .form__mask
+          %label.form__mask__image
+            / = link_to do
+            =fa_icon 'picture-o'
+            %input.hidden{type: "file"}
+        %input.form__submit{type: "submit", value: "Send"}
 
