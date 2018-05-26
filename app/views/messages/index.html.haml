@@ -73,11 +73,11 @@
           .lower_message__text
             messages
     .form
-      %form__js_form
-        .form__mask
-          %label.form_mask_image
-            = fa_icon 'fa-picture-o', class: 'icon'
-            %input.hidden{type: 'file'}
-          %input.form__submit{type: "submit", value: "Send"}
+      .form__mask
+        %form__mask_image
+          = link_to do
+            = fa_icon 'picture-o'
+          %input.hidden{type: 'file'}
+      %input.form__submit{type: "submit", value: "Send"}
 
 

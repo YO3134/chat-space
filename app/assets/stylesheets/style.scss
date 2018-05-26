@@ -73,11 +73,31 @@
     }
 
     .form {
-    background-color: $white;
+    background-color: white;
     box-sizing: border-box;
     height: 90px;
     padding: 20px 50px 20px 40px;
-    &__js_form {
+    &__mask {
+      background-color: gray;
+      height: 50px;
+      font-size: 20px;
+      &__mask_image {
+        font-size: 20px;
+        line-height: 50px;
+        &__hidden {
+          display: none;
+        }
+      }
+    }
+    &__submit {
+      background-color: $light-blue;
+      border: none;
+      color: $white;
+      float: right;
+      font-size: 16px;
+      height: 50px;
+      margin-left: 15px;
+      padding: 0 30px;
     }
     }
 
