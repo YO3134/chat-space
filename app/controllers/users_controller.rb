@@ -1,11 +1,11 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def edit
   end
 
   def update
     if current_user.update(user_params)
-       redirect_to root_path
+       redirect_to edit_user_registration_path
     else
       render :edit
     end
