@@ -1,79 +1,13 @@
 .wapper
   .side-bar
-    .header
-      %h3.header_name
-        = current_user.name
-      %ul.header_lists
-        %li.list
-          = link_to new_group_path do
-            = fa_icon "pencil-square-o"
-        %li.list
-          = link_to edit_user_registration_path(current_user) do
-            = fa_icon "cog"
-    .groups
-      .group
-        .group_name
-          グループ名
-        .group_message
-          メッセージ
-      .group
-        .group_name
-          グループ名
-        .group_message
-          メッセージ
-      .group
-        .group_name
-          グループ名
-        .group_message
-          メッセージ
-      .group
-        .group_name
-          グループ名
-        .group_message
-          メッセージ
+    = render "shared/side_bar"
   .chat
-    .chat__header
-      .left-header
-        .left-header__title
-          sampleグループ
-        %ul.left-header__members
-          Members
-          %li.member
-          xxxxxxxxx
-      .right-header
-        .right-header__button
-          Edit
+    = render "chat/chat"
     .messages.js-messages
-      .message
-        .upper_message
-          .upper_message__user_name
-            name
-          .upper_message__date
-            2018/05/25
-        .lower_message
-          .lower_message__text
-            image
-      .message
-        .upper_message
-          .upper_message__user_name
-            name
-          .upper_message__date
-            2018/05/25
-        .lower_message
-          .lower_message__text
-            image
-      .message
-        .upper_message
-          .upper_message__user_name
-            name
-          .upper_message__date
-            2018/05/25
-        .lower_message
-          .lower_message__text
-            messages
+      = render "message", collection: @messages
     .form
       = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        = f.text_field :body, class: 'form__message', placeholder: 'type a message'
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'

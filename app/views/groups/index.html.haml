@@ -1,3 +1,15 @@
-.wrapper
-
-  = render "shared/side_bar"
+.wapper
+  .side-bar
+    = render "shared/side_bar"
+  .chat
+    = render "chat/chat"
+    .messages.js-messages
+      =render "messages/message", collection: @messages
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :input, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
