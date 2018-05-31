@@ -4,7 +4,7 @@
   .chat
     = render "chat/chat"
     .messages.js-messages
-      = render "message", collection: @messages
+      =render "messages/message", collection: @messages
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :body, class: 'form__message', placeholder: 'type a message'
