@@ -4,7 +4,7 @@
   .chat
     = render "chat/chat"
     .messages.js-messages
-      = render "message", collection: @messages
+      = render partial: "message", collection: @messages
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :body, class: 'form__message', placeholder: 'type a message'
@@ -13,3 +13,4 @@
             = fa_icon 'picture-o', class: 'icon'
             = f.file_field :input, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
+

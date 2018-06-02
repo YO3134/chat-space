@@ -1,12 +1,12 @@
 .message
   .upper_message
     .upper_message__user_name
-      = @message.body
+      = message.body
     .upper_message__date
-      / = form_posted_time(@message.created_at)
+      = form_posted_time(message.created_at)
       / ヘルパーメソッドに追加？
   .lower_message
-    - if @message.body.present?
+    - if message.body.present?
       .lower_message__text
-        = @message.content
-    = image_tag @message.image, class: 'lower_message__text' if @message.image.present?
+        = message.body
+    = image_tag message.image, class: 'lower_message__text' if message.image.present?
