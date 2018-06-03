@@ -1,7 +1,8 @@
 module ApplicationHelper
 
   def form_posted_time(time)
-    time.strftime("%Y-%m-%d %H:%M ")
+    time_d = time + 9.hour
+    time_d.strftime("%Y-%m-%d %H:%M ")
   end
 
 

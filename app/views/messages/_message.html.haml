@@ -4,7 +4,7 @@
       = message.body
     .upper_message__date
       = form_posted_time(message.created_at)
-      / ヘルパーメソッドに追加？
+      / ヘルパーメソッドを利用
   .lower_message
     - if message.body.present?
       .lower_message__text
