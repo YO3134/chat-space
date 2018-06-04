@@ -5,8 +5,6 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    # binding.pry
-    # @group.users << current_user
   end
 
   def create
