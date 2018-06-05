@@ -1,25 +1,24 @@
 $(function() {
   function buildHTML(message) {
-    if(message.image.present?){
-    var image = "<img src=${message.image}>"
+    if(message.image.url){
+    var image = `<img src=${message.image.url}>`
     } else {
       var image = ""
     }
-
+    console.log(image)
     var html = `<div class="message">
                   <div class="upper_message">
                     <p class="upper_message__user_name">
-                      ${message.user.name}
+                      ${message.body}
                     </p>
                     <p class="upper_message__date">
-                      ${form_posted_time(messages.created_at)}
+                      ${message.created_at}
                     </p>
                   </div>
                   <div class="lower_message">
                       <p class="lower_message__text">
                         ${image}
-                      <img src=${messages.image.}>
-                        ${message.body}
+                      ${message.body}
                       </p>
                   </div>
                 </div>`
@@ -41,10 +40,12 @@ $(function() {
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html)
-      $('.messages').animate({scrollTop: 0}, 500, 'swing');
+      $('.form__message').val('')
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'slow');
     })
     .fail(function() {
       alert('エラーが発生しました')
     })
+    return false;
   })
 });
