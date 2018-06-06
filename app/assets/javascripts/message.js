@@ -9,7 +9,7 @@ $(function() {
     var html = `<div class="message">
                   <div class="upper_message">
                     <p class="upper_message__user_name">
-                      ${message.body}
+                      ${message.user.name}
                     </p>
                     <p class="upper_message__date">
                       ${message.created_at}

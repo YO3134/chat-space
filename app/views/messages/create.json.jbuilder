@@ -1,4 +1,4 @@
-json.body   @message.body
+json.body        @message.body
+json.image       @message.image
 json.user_name   @message.user.name
-json.image   @message.image
-json.created_at form_posted_time(@message.created_at)
+json.created_at  form_posted_time(@message.created_at)
