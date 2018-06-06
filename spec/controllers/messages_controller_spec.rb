@@ -6,6 +6,7 @@ describe MessagesController do
 
   describe '#index' do
 
+
     context 'log in' do
       before do
         login user
