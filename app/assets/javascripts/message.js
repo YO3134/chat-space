@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(message) {
-    if(message.image.url){
+    if (message.image.url) {
     var image = `<img src=${message.image.url}>`
     } else {
       var image = ""
@@ -41,6 +41,7 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.form__message').val('')
+      $('.hidden').val('')
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'slow');
     })
     .fail(function() {

@@ -5,5 +5,4 @@ module ApplicationHelper
     time_d.strftime("%Y-%m-%d %H:%M ")
   end
 
-
 end
