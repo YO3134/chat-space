@@ -41,7 +41,7 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.form__message').val('')
-      $('.hidden').val('')
+      $('#message_image').val('')
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'slow');
     })
     .fail(function() {
