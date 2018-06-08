@@ -3,16 +3,25 @@ var users_list = $("#user-search-result");
 function appendUser(user) {
   var html = `<div class="chat-group-user clearfix">
               <p class="chat-group-user__name">${user.name}</p>
-              <a class="user-search-add chat-group-user__btn chat-group-user__btn--add js-add-btn" data-user-id=${user.id} data-user-name=${user.name}>追加</a>
+              <a class="user-search-add chat-group-user__btn chat-group-user__btn--add js-add-btn" data-user-id = ${user.id} data-user-name=${user.name}>追加</a>
+              </div>
               `
   users_list.append(html);
 }
 
 function appendNoUser(user) {
   var html = `<div class="chat-group-user clearfix">
-                ${user.name}
+              ${user}
               </div>`
   users_list.append(html);
+}
+function appendGroupUser(user_id, user_name) {
+  var html = `<div class="chat-group-user clearfix js-chat-member" id="${user_id}">
+                <input name="group[user_ids][]" type="hidden" value="${user_id}">
+                <p class="chat-group-user__name">${user_name}</p>
+                <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
+              </div>`
+  $("#chat-group-users").append(html);
 }
 
   $(".chat-group-form__input").on("keyup", function() {
@@ -20,29 +29,33 @@ function appendNoUser(user) {
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: { name: input },
+      data: { keyword: input },
       dataType: 'json'
     })
 
     .done(function(users) {
       $("#user-search-result").empty();
-      if(users.length !== 0 ) {
+      if(users.length !== 0) {
         users.forEach(function(user) {
           appendUser(user);
         });
       } else {
-        appendNOUser("一致するユーザーはいません");
+        appendNoUser('一致するユーザーはいません');
       }
     })
     .fail(function() {
       alert('ユーザー検索に失敗しました。');
-    });
+    })
+  });
+
+  $("#user-search-result").on('click', '.user-search-add', function() {
+    $(".chat-group-form__input").val('')
+    var user_name = $(this).attr('data-user-name');
+    var user_id = $(this).attr('data-user-id');
+    appendGroupUser(user_id, user_name);
+    $(this).parent().remove();
+  });
+  $("#chat-group-users").on('click', ".js-remove-btn", function() {
+    $(this).parent().remove();
   });
 });
-
-//   <div id='chat-group-users'>
-//     <div class='chat-group-user clearfix' id='chat-group-user-22'>
-//     <input name='chat_group[user_ids][]' type='hidden' value='22'>
-//     <p class='chat-group-user__name'>seo_kyohei</p>
-//     </div>
-//     </div>
