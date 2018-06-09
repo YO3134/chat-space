@@ -11,7 +11,7 @@ function appendUser(user) {
 
 function appendNoUser(user) {
   var html = `<div class="chat-group-user clearfix">
-              ${user}
+              <p>一致するユーザーはいません</p>
               </div>`
   users_list.append(html);
 }
@@ -40,7 +40,7 @@ function appendGroupUser(user_id, user_name) {
           appendUser(user);
         });
       } else {
-        appendNoUser('一致するユーザーはいません');
+        appendNoUser();
       }
     })
     .fail(function() {
