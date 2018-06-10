@@ -22,30 +22,33 @@ $(function() {
                   </div>
                 </div>`
     return html
-  }
+  };
 
-  $(".new_message").on("submit",function(e) {
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action')
+  setInterval(update, 5000);
+
+  function update() {
+    var message_id = $('.messages').last().data('message_id');
+    console.log(message_id)
+    var url = location.pathname.match(/\/groups\/\d+\/messages/);
     $.ajax({
       url: url,
-      type: "POST",
-      data: formData,
+      type: "GET",
+      data:  {id: message_id},
       dataType: 'json',
-      processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.form__message').val('')
-      $('#message_image').val('')
+    .done(function(data) {
+      console.log(data)
+      if (data.length == 0 ) return false;
+      data.forEach(function(message) {
+        var html = buildHTML(message);
+        $('.messages').append(html);
+      });
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'slow');
     })
     .fail(function() {
-      alert('エラーが発生しました')
+      alert('自動更新に失敗しました')
     })
     return false;
-  })
+  }
 });
