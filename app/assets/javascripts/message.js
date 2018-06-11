@@ -1,10 +1,6 @@
 $(function() {
   function buildHTML(message) {
-    if (message.image) {
-    var image = `<img src=${message.image}>`
-    } else {
-      var image = "";
-    }
+  var image = (message.image) ? `<img src=${message.image}>` : "";
     var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper_message">
                     <p class="upper_message__user_name">
@@ -49,13 +45,10 @@ $(function() {
     return false;
   });
 
-
-
   setInterval(update, 5000);
 
   function update() {
     var message_id = $('.message').last().data('message-id');
-    console.log(message_id)
     var url = location.pathname.match(/\/groups\/\d+\/messages/);
     $.ajax({
       url: url,
@@ -64,7 +57,6 @@ $(function() {
       dataType: 'json',
     })
     .done(function(data) {
-      // if (data.length !== 0 ) return false;
       data.forEach(function(message) {
         var html = buildHTML(message);
         $('.messages').append(html);
