@@ -20,6 +20,10 @@ $(function() {
     return html
   }
 
+  function scroll() {
+  $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'slow');
+  }
+
   $(".new_message").on("submit",function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -37,7 +41,7 @@ $(function() {
       $('.messages').append(html)
       $('.form__message').val('')
       $('#message_image').val('')
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'slow');
+      scroll();
     })
     .fail(function() {
       alert('エラーが発生しました')
@@ -61,7 +65,7 @@ $(function() {
         var html = buildHTML(message);
         $('.messages').append(html);
       });
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'slow');
+      scroll();
     })
     .fail(function() {
       alert('自動更新に失敗しました')
