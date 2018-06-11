@@ -1,7 +1,7 @@
 $(function() {
   function buildHTML(message) {
-    if (message.image.url) {
-    var image = `<img src=${message.image.url}>`
+    if (message.image) {
+    var image = `<img src=${message.image}>`
     } else {
       var image = "";
     }
@@ -47,8 +47,8 @@ $(function() {
       alert('エラーが発生しました')
     })
     return false;
-  })
-});
+  });
+
 
 
   setInterval(update, 5000);
@@ -64,8 +64,7 @@ $(function() {
       dataType: 'json',
     })
     .done(function(data) {
-      console.log(data)
-      if (data.length == 0 ) return false;
+      // if (data.length !== 0 ) return false;
       data.forEach(function(message) {
         var html = buildHTML(message);
         $('.messages').append(html);
@@ -73,7 +72,7 @@ $(function() {
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'slow');
     })
     .fail(function() {
-      // alert('自動更新に失敗しました')
+      alert('自動更新に失敗しました')
     })
-    return false;
   };
+});
