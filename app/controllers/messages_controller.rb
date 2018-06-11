@@ -7,8 +7,6 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html
       format.json { @new_messages = @messages.where('id > ?', params[:id]) }
-      # binding.pry
-
     end
   end
 
@@ -34,6 +32,9 @@ class MessagesController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+  end
+
+  def login_groups
     @groups = current_user.groups
   end
 
