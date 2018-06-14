@@ -65,7 +65,6 @@ $(function() {
           var html = buildHTML(message);
           $('.messages').append(html);
         });
-        scroll();
       })
       .fail(function() {
         alert('自動更新に失敗しました')
