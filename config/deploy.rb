@@ -24,7 +24,7 @@ namespace :deploy do
 
   desc 'upload secrets.yml'
   task :upload do
-    ono roles(:app) do |host|
+    on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
