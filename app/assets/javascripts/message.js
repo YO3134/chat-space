@@ -54,6 +54,7 @@ $(function() {
   function update() {
     var message_id = $('.message').last().data('message-id');
     var url = location.pathname.match(/\/groups\/\d+\/messages/);
+    if (window.url)
     $.ajax({
       url: url,
       type: "GET",
@@ -70,5 +71,8 @@ $(function() {
     .fail(function() {
       alert('自動更新に失敗しました')
     })
+    else {
+      clearInterval(update);
+    }
   };
 });
