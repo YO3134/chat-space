@@ -49,30 +49,28 @@ $(function() {
     return false;
   });
 
-  setInterval(update, 5000);
-
-  function update() {
+    var interval = setInterval(function() {
     var message_id = $('.message').last().data('message-id');
     var url = location.pathname.match(/\/groups\/\d+\/messages/);
-    if (window.url)
-    $.ajax({
-      url: url,
-      type: "GET",
-      data:  {id: message_id},
-      dataType: 'json',
-    })
-    .done(function(data) {
-      data.forEach(function(message) {
-        var html = buildHTML(message);
-        $('.messages').append(html);
-      });
-      scroll();
-    })
-    .fail(function() {
-      alert('自動更新に失敗しました')
-    })
-    else {
-      clearInterval(update);
-    }
-  };
+    if (url) {
+      console.log(url)
+      $.ajax({
+        url: url,
+        type: "GET",
+        data:  {id: message_id},
+        dataType: 'json',
+      })
+      .done(function(data) {
+        data.forEach(function(message) {
+          var html = buildHTML(message);
+          $('.messages').append(html);
+        });
+        scroll();
+      })
+      .fail(function() {
+        alert('自動更新に失敗しました')
+      })
+    } else {
+      clearInterval(interval)
+    }}, 5000);
 });
