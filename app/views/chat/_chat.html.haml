@@ -1,11 +1,12 @@
 .chat__header
   .left-header
     .left-header__title
-      sampleグループ
+      = @group.name
     %ul.left-header__members
-      Members
+      Members:
       %li.member
-      xxxxxxxxx
+        - @group.group_users.each |group_user|
+          =group_user.user.name
   .right-header
     .right-header__button
-      Edit
+      %input{ value: "Edit"}
