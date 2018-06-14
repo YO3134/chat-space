@@ -42,7 +42,7 @@ set :default_env, {
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
 
-set :linked_files, %w {config/secrets.yml }
+set :linked_files, %w{ config/secrets.yml }
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
