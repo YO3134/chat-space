@@ -24,7 +24,7 @@ function appendGroupUser(user_id, user_name) {
   $("#chat-group-users").append(html);
 }
 
-  $(".chat-group-form__input").on("keyup", function() {
+  $("#input-user-search").on("keyup", function() {
     var input = $.trim($(this).val());
     $.ajax({
       type: 'GET',
@@ -49,7 +49,7 @@ function appendGroupUser(user_id, user_name) {
   });
 
   $("#user-search-result").on('click', '.user-search-add', function() {
-    $(".chat-group-form__input").val('')
+    $("#input-user-search").val('')
     var user_name = $(this).attr('data-user-name');
     var user_id = $(this).attr('data-user-id');
     appendGroupUser(user_id, user_name);
