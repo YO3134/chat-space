@@ -26,7 +26,6 @@ $(function() {
 
   $(".new_message").on("submit",function(e) {
     e.preventDefault();
-    // フォームのsubmitイベントを中止
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -39,10 +38,12 @@ $(function() {
     })
     .done(function(data){
       var html = buildHTML(data);
+      if (data.length !== 0) {
       $('.messages').append(html)
       $('.form__message').val('')
       $('#message_image').val('')
       scroll();
+     }
     })
     .fail(function() {
       alert('エラーが発生しました')
@@ -66,6 +67,7 @@ $(function() {
           var html = buildHTML(message);
           $('.messages').append(html);
         });
+
       })
       .fail(function() {
         alert('自動更新に失敗しました')
@@ -74,4 +76,3 @@ $(function() {
       clearInterval(interval)
     }}, 5000);
 });
-
