@@ -26,6 +26,7 @@ $(function() {
 
   $(".new_message").on("submit",function(e) {
     e.preventDefault();
+    // フォームのsubmitイベントを中止
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -73,3 +74,4 @@ $(function() {
       clearInterval(interval)
     }}, 5000);
 });
+

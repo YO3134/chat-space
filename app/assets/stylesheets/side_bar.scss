@@ -31,6 +31,7 @@
     .group {
       box-sizing: border-box;
       padding: 20px 0 40px;
+      color: $white;
       &_name {
         font-size: $side_bar_name;
       &_message {

@@ -1,7 +1,6 @@
 .chat {
   width: calc(100% - 300px);
   &__header {
-    background-color: #ccc;
     box-sizing: border-box;
     border: #eeeeee;
     height: 100px;
@@ -25,14 +24,15 @@
       }
     }
     .right-header {
-      border: 1px solid $side_blue_light;
-      color: $side_blue_light;
+      border: 1px solid #38AEF0;
+      color: #38AEF0;
       float: right;
       line-height: 40px;
       margin-top: 28px;
       padding: 0 20px;
       height: 40px;
       &__button {
+        color:  #38AEF0;
         float: right;
       }
     }
@@ -40,7 +40,7 @@
 }
   .messages.js-messages {
     overflow: scroll;
-    background-color: $white;
+    background-color: #fafafa;
     box-sizing: border-box;
     padding: 46px 40px 0;
     height: calc(100vh - 100px - 90px);
