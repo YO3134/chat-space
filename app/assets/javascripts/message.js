@@ -51,11 +51,10 @@ $(function() {
     return false;
   });
 
-    var interval = setInterval(function() {
+  var interval = setInterval(function() {
     var message_id = $('.message').last().data('message-id');
     var url = location.pathname.match(/\/groups\/\d+\/messages/);
     if (url) {
-      console.log(url)
       $.ajax({
         url: url,
         type: "GET",
@@ -63,16 +62,20 @@ $(function() {
         dataType: 'json',
       })
       .done(function(data) {
-        data.forEach(function(message) {
-          var html = buildHTML(message);
+        if (data.length !== 0) {
+          var lastLength = data.length - 1;
+          var newMessage = data[lastLength];
+          console.log(newMessage);
+          var html = buildHTML(newMessage);
           $('.messages').append(html);
-        });
-
+          scroll();
+        }
       })
       .fail(function() {
         alert('自動更新に失敗しました')
       })
     } else {
       clearInterval(interval)
-    }}, 5000);
+    }
+  }, 5000);
 });
